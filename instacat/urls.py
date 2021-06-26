@@ -1,4 +1,4 @@
-"""instacat URL Configuration
+"""omigram URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -13,9 +13,29 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# Django
+from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
+from django.contrib.auth import views as auth_views
+
+#from omigram import views as local_views
+from posts import views as posts_views
+from users import views as users_views
+
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
-]
+
+    path('posts/', posts_views.list_posts, name='feed'),
+    path('users/login/', users_views.login_view, name='login'),
+    path('users/logout/', users_views.logout_view, name='logout'),
+    path('users/signup/', users_views.signup_view, name='signup'),
+    path('users/me/profile/', users_views.update_profile, name='update_profile'),
+
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
+#+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
