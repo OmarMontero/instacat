@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/omar/venvs/instacat/bin/python"
+    "python.pythonPath": "/home/omar/.venvs/instacat/bin/python",
+    "liveServer.settings.port": 5501
 }
