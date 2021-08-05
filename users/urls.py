@@ -16,11 +16,11 @@ urlpatterns = [
         view=views.LoginView.as_view(),
         name='login'
     ),
-    path(
-        route='logout/',
-        view=views.LogoutView.as_view(),
-        name='logout'
-    ),
+    # path(
+    #     route='logout/',
+    #     view=views.LogoutView.as_view(),
+    #     name='logout'
+    # ),
     path(
         route='signup/',
         view=views.SignupView.as_view(),
@@ -37,6 +37,6 @@ urlpatterns = [
         route='<str:username>/',
         view=views.UserDetailView.as_view(),
         name='detail'
-    )
+    ),
 
 ]
